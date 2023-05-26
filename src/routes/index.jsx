@@ -14,17 +14,17 @@ export const routes=[
     {
         path:"/trainingList",
         element:<TrainingList/>,
-        name:"trainingList",
-    },
-    {
-        path:"/login",
-        element:<Login/>,
-        name :"Login",
+        name:"TrainingList",
     },
     {
         path:"/signUp",
         element:<SignUp/>,
         name:"SignUp",
+    },
+    {
+        path:"/login",
+        element:<Login/>,
+        name :"Login",
     },
     {
         path:"/404",

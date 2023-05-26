@@ -4,7 +4,9 @@ import Layout from '../layouts'
 const TrainingList = () => {
   return (
     <Layout>
-      TrainingList
+      <div>
+        TrainingList
+      </div>
     </Layout>
   )
 }
