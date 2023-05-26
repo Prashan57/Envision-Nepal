@@ -27,7 +27,7 @@ const Header = () => {
                   <Link
                     key={each.path}
                     to={each.path}
-                    className={`hover:text-teal-100 px-3 py-2 rounded-md text-sm font-medium ${ (each.name==="Login" || each.name=== "SignUp") ? " hover:bg-secondary hover:text-white text-secondary"  : ""}  ${each.name==='TrainingList'? "text-blue-300":""}`}
+                    className={`hover:text-teal-100 px-3 py-2 rounded-md text-sm font-medium ${ (each.name==="Login" || each.name=== "SignUp") ? " hover:bg-secondary hover:text-white text-secondary"  : ""}  ${each.name==='TrainingList'? "text-blue-3 00":""}`}
                   >
                     {each.name}
                   </Link>
