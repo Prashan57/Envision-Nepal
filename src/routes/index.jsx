@@ -27,11 +27,6 @@ export const routes = [
     name: "SignUp",
   },
   {
-    path: "/dashboard",
-    element: <AdminPage />,
-    name: "Dashboard",
-  },
-  {
     path: "/404",
     element: <Error404 />,
   },
