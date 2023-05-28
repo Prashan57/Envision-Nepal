@@ -1,7 +1,51 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useUserContext } from "../contexts/usercontext";
+import Info from "../components/info";
+
+const initialLoginData = {
+  email: "",
+  password: "",
+};
 
 const Login = () => {
+  const { loginUser } = useUserContext();
+
+  const [error, setError] = useState({
+    errorText: "",
+    infoText: "",
+    field: "",
+  });
+
+  const [loginData, setLoginData] = useState(initialLoginData);
+
+  const updateLoginData = (value, key = "name") => {
+    setLoginData((prev) => ({
+      ...prev,
+      [key]: value,
+    }));
+    console.log(loginData);
+  };
+
+  const onLogin = async (e) => {
+    e.preventDefault();
+    const response = await loginUser(loginData);
+    console.log("Login response", response);
+    if (response.error) {
+      setError({
+        errorText: response.error,
+        field: response.field || "",
+      });
+    }
+
+    if (response.success) {
+      setError({
+        errorText: "",
+        field: "",
+      });
+    }
+  };
+
   return (
     <div className="flex h-screen">
       <div className="w-1/2 bg-white flex flex-col item-center p-8 border rounded-lg">
@@ -21,39 +65,50 @@ const Login = () => {
             <p className="text-sm text-gray-500 mb-20 px-5">
               Welcome back! Please enter your details
             </p>
-            <div className="mb-4">
-              <input
-                type="email"
-                id="email"
-                placeholder="Email"
-                className="w-full p-2 border-b"
-              />
-            </div>
-            <div className="mb-7">
-              <input
-                type="password"
-                id="password"
-                placeholder="Password"
-                className="w-full p-2 border-b"
-              />
-            </div>
-            <div className="flex items-center mb-4">
-              <input type="checkbox" id="remember" className="mr-2" />
-              <label htmlFor="remember" className="text-xs text-gray-500">
-                Remember for 30 days
-              </label>
-              <a href="#" className="ml-auto text-sm text-blue-500">
-                Forgot password?
-              </a>
-            </div>
-            <button className="w-full bg-gray-800 text-white hover:text-gray-800 hover:bg-secondary py-2 mb-4 rounded">
-              <Link to="/" >
+            <form onSubmit={onLogin}>
+              <div className="mb-4">
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="Email"
+                  className="w-full p-2 border-b"
+                  value={loginData.email}
+                  error={error.field === "email" && error.errorText}
+                  onChange={(e) => updateLoginData(e.target.value, "email")}
+                />
+              </div>
+              <div className="mb-7">
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Password"
+                  className="w-full p-2 border-b"
+                  value={loginData.password}
+                  error={error.field === "password" && error.errorText}
+                  onChange={(e) => updateLoginData(e.target.value, "password")}
+                />
+              </div>
+              {!!error.infoText && <Info type="info">{error.infoText}</Info>}
+
+              {!!error.errorText && !error.field && (
+                <Info type="error">{error.errorText}</Info>
+              )}
+              <div className="flex items-center mb-4">
+                <input type="checkbox" id="remember" className="mr-2" />
+                <label htmlFor="remember" className="text-xs text-gray-500">
+                  Remember for 30 days
+                </label>
+                <a href="#" className="ml-auto text-sm text-blue-500">
+                  Forgot password?
+                </a>
+              </div>
+              <button className="w-full bg-gray-800 text-white hover:text-gray-800 hover:bg-secondary py-2 mb-4 rounded">
                 Login
-              </Link>
-            </button>
+              </button>
+            </form>
             <div className="text-sm text-gray-500">
               Don't have an account?{" "}
-              <Link to ="/SignUp" className="font-medium text-blue-500 ">
+              <Link to="/SignUp" className="font-medium text-blue-500 ">
                 Sign Up for free
               </Link>
             </div>
