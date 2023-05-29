@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useUserContext } from "../contexts/usercontext";
 import Info from "../components/info";
-
+import { motion } from "framer-motion";
 
 const inititalSignupData = {
   name: "",
@@ -13,6 +13,7 @@ const inititalSignupData = {
   pan: "",
 };
 const SignUp = () => {
+  const navigate = useNavigate();
   const { registerUser } = useUserContext();
   const [isSignup, setIsSignup] = useState(false);
   const [error, setError] = useState({
@@ -21,7 +22,7 @@ const SignUp = () => {
     field: "",
   });
 
-  const [signupData, setsignupData] = useState(inititalSignupData);
+  const [signupData, setSignupData] = useState(inititalSignupData);
 
   const updateSignupData = (value, key = "name") => {
     setSignupData((prev) => ({
@@ -50,15 +51,23 @@ const SignUp = () => {
         infoText: "Signup success! Please login to access account",
         field: "",
       });
+
+      navigate("/login");
     }
   };
 
   return (
-    <div className="flex h-screen">
-      <div className="w-2/3 bg-gray-200">
+    <motion.div
+      className="flex h-screen w-screen absolute"
+      initial={{ x: "-50%" }}
+      animate={{ x: "0%" }}
+      transition={{ duration: 0.75, ease: "easeOut" }}
+      exit={{ opacity: 1 }}
+    >
+      <div className="w-3/5 bg-gray-200">
         <img src="" alt="Background" className="h-full object-cover" />
       </div>
-      <div className="w-1/2 bg-white flex flex-col item-center p-8 border rounded-lg">
+      <div className="w-2/5 bg-white flex flex-col item-center p-8 border rounded-lg">
         <div className="mb-16 flex items-start justify-start">
           <Link
             to="/"
@@ -147,6 +156,7 @@ const SignUp = () => {
                 <Info type="error">{error.errorText}</Info>
               )}
               {!!error.infoText && <Info type="info">{error.infoText}</Info>}
+
               <button className="w-full bg-gray-800 text-white hover:text-gray-800 hover:bg-secondary py-2 mb-4 rounded">
                 Create Account
               </button>
@@ -160,7 +170,7 @@ const SignUp = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,14 +1,17 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import { useUserContext } from "../contexts/usercontext";
 import Info from "../components/info";
+import { item, container } from "../assets/animation";
 
 const initialLoginData = {
   email: "",
   password: "",
 };
 
-const Login = () => {
+const Login = (props) => {
+  const navigate = useNavigate();
   const { loginUser } = useUserContext();
 
   const [error, setError] = useState({
@@ -18,6 +21,10 @@ const Login = () => {
   });
 
   const [loginData, setLoginData] = useState(initialLoginData);
+
+  // useEffect(()=>{
+  //   setLoginData(initialLoginData)
+  // },[])
 
   const updateLoginData = (value, key = "name") => {
     setLoginData((prev) => ({
@@ -43,82 +50,107 @@ const Login = () => {
         errorText: "",
         field: "",
       });
+      navigate("/");
     }
   };
 
   return (
-    <div className="flex h-screen">
-      <div className="w-1/2 bg-white flex flex-col item-center p-8 border rounded-lg">
-        <div className="mb-24 flex items-start justify-start">
+    <motion.div
+      className="flex h-screen  w-screen absolute"
+      initial={{ x: "50%" }}
+      animate={{ x: "0%" }}
+      transition={{ duration: 0.75, ease: "easeOut" }}
+      exit={{ opacity: 1 }}
+    >
+      <div className="w-2/5 bg-white flex flex-col item-center p-8 border rounded-lg overflow-hidden">
+        <motion.div
+          className="mb-24 flex items-start justify-start"
+          initial={{ x: "15%" }}
+          animate={{ x: "0%" }}
+          transition={{ delay: 0.5, duration: 0.5, ease: "easeOut" }}
+          exit={{ opacity: 1 }}
+        >
           <Link
             to="/"
             className="text-sm font-medium text-blue-500 hover:underline"
           >
             Envision Nepal
           </Link>
-        </div>
-        <div className="flex flex-col px-20 py-10">
-          <div className="mb-2">
-            <h2 className="text-3xl font-semibold">Welcome back, Buddy</h2>
+        </motion.div>
+        <motion.div
+          className="flex flex-col px-20 py-10"
+          variants={container}
+          initial="hidden"
+          animate="show"
+        >
+          <div className="mb-5 overflow-hidden">
+            <motion.h2 variants={item} className="text-3xl font-semibold">
+              Welcome back, Buddy
+            </motion.h2>
           </div>
-          <div>
-            <p className="text-sm text-gray-500 mb-20 px-5">
-              Welcome back! Please enter your details
-            </p>
-            <form onSubmit={onLogin}>
-              <div className="mb-4">
-                <input
-                  type="email"
-                  id="email"
-                  placeholder="Email"
-                  className="w-full p-2 border-b"
-                  value={loginData.email}
-                  error={error.field === "email" && error.errorText}
-                  onChange={(e) => updateLoginData(e.target.value, "email")}
-                />
-              </div>
-              <div className="mb-7">
-                <input
-                  type="password"
-                  id="password"
-                  placeholder="Password"
-                  className="w-full p-2 border-b"
-                  value={loginData.password}
-                  error={error.field === "password" && error.errorText}
-                  onChange={(e) => updateLoginData(e.target.value, "password")}
-                />
-              </div>
-              {!!error.infoText && <Info type="info">{error.infoText}</Info>}
 
-              {!!error.errorText && !error.field && (
-                <Info type="error">{error.errorText}</Info>
-              )}
-              <div className="flex items-center mb-4">
-                <input type="checkbox" id="remember" className="mr-2" />
-                <label htmlFor="remember" className="text-xs text-gray-500">
-                  Remember for 30 days
-                </label>
-                <a href="#" className="ml-auto text-sm text-blue-500">
-                  Forgot password?
-                </a>
-              </div>
-              <button className="w-full bg-gray-800 text-white hover:text-gray-800 hover:bg-secondary py-2 mb-4 rounded">
-                Login
-              </button>
-            </form>
-            <div className="text-sm text-gray-500">
-              Don't have an account?{" "}
-              <Link to="/SignUp" className="font-medium text-blue-500 ">
-                Sign Up for free
-              </Link>
-            </div>
+          <div className="overflow-hidden text-sm text-gray-500 mt-3 mb-5 ">
+            <motion.p variants={item}>
+              Welcome back! Please enter your details
+            </motion.p>
           </div>
-        </div>
+          <form onSubmit={onLogin} className="overflow-hidden">
+            <motion.div variants={item} className="mb-5 ">
+              <input
+                type="email"
+                id="email"
+                placeholder="Email"
+                className="w-full p-2 border-b"
+                value={loginData.email}
+                error={error.field === "email" && error.errorText}
+                onChange={(e) => updateLoginData(e.target.value, "email")}
+              />
+            </motion.div>
+            <motion.div variants={item} className="mb-9 ">
+              <input
+                type="password"
+                id="password"
+                placeholder="Password"
+                className="w-full p-2 border-b"
+                value={loginData.password}
+                error={error.field === "password" && error.errorText}
+                onChange={(e) => updateLoginData(e.target.value, "password")}
+              />
+            </motion.div>
+            {!!error.infoText && <Info type="info">{error.infoText}</Info>}
+
+            {!!error.errorText && !error.field && (
+              <Info type="error">{error.errorText}</Info>
+            )}
+            <motion.div variants={item} className="flex items-center mb-8 ">
+              <input type="checkbox" id="remember" className="mr-2" />
+              <label htmlFor="remember" className="text-xs text-gray-500">
+                Remember for 30 days
+              </label>
+              <a href="#" className="ml-auto text-sm text-blue-500">
+                Forgot password?
+              </a>
+            </motion.div>
+            <div className="mt-5 mb-4">
+              <motion.div variants={item}>
+                <button className="w-full bg-gray-800 text-white hover:text-gray-800 hover:bg-secondary py-2 mb-4 rounded">
+                  Login
+                </button>
+              </motion.div>
+            </div>
+          </form>
+          <div className="text-sm text-gray-500">
+            Don't have an account?{" "}
+            <Link to="/SignUp" className="font-medium text-blue-500 ">
+              Sign Up for free
+            </Link>
+          </div>
+        </motion.div>
       </div>
-      <div className="w-2/3 bg-gray-200">
+      <div className="w-3/5 bg-gray-200">
         <img src="" alt="Background" className="h-full object-cover" />
       </div>
-    </div>
+    </motion.div>
   );
 };
 
