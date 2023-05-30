@@ -94,6 +94,13 @@ export const UserProvider= ({children})=>{
     }
 
 
+    const onLogOut= ()=>{
+        localStorage.removeItem("currentUser");
+        localStorage.removeItem("accessToken");
+        setIsLoggedIn(false)
+    }
+
+
     return<UserContext.Provider value={{
         user,
         users,
@@ -102,6 +109,7 @@ export const UserProvider= ({children})=>{
         isLoggedIn,
         registerUser,
         loginUser,
+        onLogOut,
     }}>
         {children}
     </UserContext.Provider>

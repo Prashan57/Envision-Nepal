@@ -8,7 +8,7 @@ const App = () => {
   return (
     <UserProvider>
       <Router>
-      <AnimatePresence initial={false}>
+      <AnimatePresence >
         <Routes>
           {routes.map((each) => (
             <Route key={each.path} path={each.path} element={each.element} />

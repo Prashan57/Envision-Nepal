@@ -59,7 +59,7 @@ const Login = (props) => {
       className="flex h-screen  w-screen absolute"
       initial={{ x: "50%" }}
       animate={{ x: "0%" }}
-      transition={{ duration: 0.75, ease: "easeOut" }}
+      transition={{ duration: 0.35, ease: "easeOut" }}
       exit={{ opacity: 1 }}
     >
       <div className="w-2/5 bg-white flex flex-col item-center p-8 border rounded-lg overflow-hidden">
@@ -67,7 +67,7 @@ const Login = (props) => {
           className="mb-24 flex items-start justify-start"
           initial={{ x: "15%" }}
           animate={{ x: "0%" }}
-          transition={{ delay: 0.5, duration: 0.5, ease: "easeOut" }}
+          transition={{ delay: 0.25, duration: 0.25, ease: "easeOut" }}
           exit={{ opacity: 1 }}
         >
           <Link
@@ -85,17 +85,17 @@ const Login = (props) => {
         >
           <div className="mb-5 overflow-hidden">
             <motion.h2 variants={item} className="text-3xl font-semibold">
-              Welcome back, Buddy
+              Welcome, Buddy
             </motion.h2>
           </div>
 
           <div className="overflow-hidden text-sm text-gray-500 mt-3 mb-5 ">
             <motion.p variants={item}>
-              Welcome back! Please enter your details
+              Welcome  Please enter your details
             </motion.p>
           </div>
           <form onSubmit={onLogin} className="overflow-hidden">
-            <motion.div variants={item} className="mb-5 ">
+            <div  className="mb-5 ">
               <input
                 type="email"
                 id="email"
@@ -105,8 +105,8 @@ const Login = (props) => {
                 error={error.field === "email" && error.errorText}
                 onChange={(e) => updateLoginData(e.target.value, "email")}
               />
-            </motion.div>
-            <motion.div variants={item} className="mb-9 ">
+            </div>
+            <div className="mb-9 ">
               <input
                 type="password"
                 id="password"
@@ -116,7 +116,7 @@ const Login = (props) => {
                 error={error.field === "password" && error.errorText}
                 onChange={(e) => updateLoginData(e.target.value, "password")}
               />
-            </motion.div>
+            </div>
             {!!error.infoText && <Info type="info">{error.infoText}</Info>}
 
             {!!error.errorText && !error.field && (
@@ -147,8 +147,8 @@ const Login = (props) => {
           </div>
         </motion.div>
       </div>
-      <div className="w-3/5 bg-gray-200">
-        <img src="" alt="Background" className="h-full object-cover" />
+      <div className="w-3/5 bg-white flex justify-center ">
+        <img src="../../public/Login.jpg" alt="Background" className="h-full w-20/21 object-cover"  />
       </div>
     </motion.div>
   );

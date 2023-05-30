@@ -3,7 +3,7 @@ export const container={
     show:{
         opacity:1,
         transition:{
-            delayChildren:0.5,
+            delayChildren:0.25,
             staggerChildren:0.2,
         },
     },
@@ -12,9 +12,9 @@ export const container={
 export const item={
     hidden:{x:'-100%'},
     show:{
-        x:"0%",
+        x:"0",
         transition:{
-            duration:0.5
+            duration:0.10
         },
     },
 };

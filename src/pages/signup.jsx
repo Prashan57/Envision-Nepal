@@ -54,18 +54,18 @@ const SignUp = () => {
 
       navigate("/login");
     }
-  };
+  }; 
 
   return (
     <motion.div
       className="flex h-screen w-screen absolute"
       initial={{ x: "-50%" }}
       animate={{ x: "0%" }}
-      transition={{ duration: 0.75, ease: "easeOut" }}
+      transition={{ duration: 0.35, ease: "easeOut" }}
       exit={{ opacity: 1 }}
     >
-      <div className="w-3/5 bg-gray-200">
-        <img src="" alt="Background" className="h-full object-cover" />
+      <div className="w-3/5 bg-white flex justify-center">
+        <img src="../../public//Signup2.jpg" alt="Background" className="h-full w-20/21 object-cover" />
       </div>
       <div className="w-2/5 bg-white flex flex-col item-center p-8 border rounded-lg">
         <div className="mb-16 flex items-start justify-start">
@@ -141,7 +141,7 @@ const SignUp = () => {
                   onChange={(e) => updateSignupData(e.target.value, "phone")}
                 />
               </div>
-              <div className="mb-4">
+              <div className="mb-12">
                 <input
                   type="text"
                   id="pan"
