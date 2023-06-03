@@ -2,8 +2,10 @@ import React from "react";
 import { useUsers } from "../../hooks/useUser.js";
 import { useAdmin } from "../../hooks/useAdminBid.js";
 import { useUserBid } from "../../hooks/useUserBid.js";
+import { sideBar, content, mainView } from "../../styles/dashboardStyle.js";
+import { Link } from "react-router-dom";
 
-const AdminPage = () => {
+const AdminPage = ({ children }) => {
   const { users } = useUsers();
   const { post } = useAdmin();
   const { done } = useUserBid();
@@ -12,8 +14,26 @@ const AdminPage = () => {
   console.log(post.map((post) => post.title));
   console.log(done.map((user) => user.title));
   return (
-    <div>
-      <div>AdminPage</div>
+    <div style={mainView}>
+      <div style={sideBar}>
+        <Link to="/admin/home">
+          <b
+            style={{
+              fontSize: "40px",
+              fontWeight: "inherit",
+            }}
+          >
+            Envision Nepal
+          </b>
+        </Link>
+        <br />
+        <br /> <Link to="/admin/home"> Home</Link>
+        <br /> <Link to="/admin/usersList"> Users</Link>
+        <br /> <Link to="/admin/training">Training</Link>
+        <br /> <Link to="/admin/bidsCreated">Post Training </Link>
+        <br /> <Link to="/admin/bidsPlaced">Bids Placed</Link>
+      </div>
+      <div style={content}>{children}</div>
     </div>
   );
 };

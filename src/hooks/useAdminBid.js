@@ -21,9 +21,9 @@ export const useAdmin = () => {
   }, []);
 
   //C
-  const useAdminPost = async ({}) => {
+  const useAdminPost = async ({ title, bidAmount, description, email }) => {
     setLoading(true);
-    await postBid({});
+    await postBid({ title, bidAmount, description, email });
     setLoading(false);
   };
 
@@ -42,9 +42,15 @@ export const useAdmin = () => {
     setLoading(false);
   };
   //U
-  const useEditAdminPost = async ({}) => {
+  const useEditAdminPost = async ({
+    _id,
+    title,
+    bidAmount,
+    description,
+    email,
+  }) => {
     setLoading(true);
-    await updateBid({});
+    await updateBid({ _id, title, bidAmount, description, email });
     setLoading(false);
   };
 
