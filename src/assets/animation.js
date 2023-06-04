@@ -14,7 +14,7 @@ export const item={
     show:{
         x:"0",
         transition:{
-            duration:0.10
+            duration:0.25
         },
     },
 };

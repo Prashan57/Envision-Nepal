@@ -1,7 +1,10 @@
 import Index from "../pages";
 import Error404 from "../pages/Error404";
 import AdminPage from "../pages/admin";
+import Bid from "../pages/bid";
+import ForgotPassword from "../pages/forgotpassword";
 import Login from "../pages/login";
+import ResetPassword from "../pages/resetPassword";
 import SignUp from "../pages/signup";
 import TrainingList from "../pages/traininglist";
 
@@ -30,4 +33,20 @@ export const routes = [
     path: "/404",
     element: <Error404 />,
   },
+  {
+    path:"/bid",
+    element:<Bid/>
+  },
+  {
+    path:"/admin",
+    element:<AdminPage/>,
+  },
+  {
+    path:"/forgotPassword",
+    element:<ForgotPassword/>
+  },
+  {
+    path:"/resetPassword/:id/:token",
+    element:<ResetPassword/>
+  }
 ];

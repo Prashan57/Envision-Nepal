@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { loginUserApi, postUser } from "../api/user";
+import { getResetPasswordApi, loginUserApi, passwordLinkApi, postUser, resetPasswordApi } from "../api/user";
 
 
 
@@ -100,6 +100,42 @@ export const UserProvider= ({children})=>{
         setIsLoggedIn(false)
     }
 
+    const onForgotPassword= async({email})=>{
+        try{
+            const response= await passwordLinkApi({email})
+            return response
+        }
+        catch(e){
+            return{
+                error:e?.response?.data?.message??"Something went wrong"
+            }
+        }
+    }
+
+    const onResetPassword= async({password})=>{
+        try{
+            const response= await resetPasswordApi({password})
+            return response
+        }
+        catch(e){
+            return{
+                error:e?.response?.data?.message??"Something went wrong"
+            }
+        }
+    }
+
+    const onVerifyResetToken= async({id,token})=>{
+        try{
+            const response= await getResetPasswordApi({id,token});
+            return response;
+        }
+        catch(e){
+            return{
+                error:e?.response?.data?.message??"Something went wrong"
+            }
+        }
+    }
+
 
     return<UserContext.Provider value={{
         user,
@@ -110,6 +146,9 @@ export const UserProvider= ({children})=>{
         registerUser,
         loginUser,
         onLogOut,
+        onForgotPassword,
+        onResetPassword,
+        onVerifyResetToken
     }}>
         {children}
     </UserContext.Provider>

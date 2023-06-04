@@ -12,6 +12,33 @@ export const loginUserApi= async({
   return result.data
 }
 
+export const passwordLinkApi= async({
+  email,
+})=>{
+  const result= await axiosInstance.post("/api/sendpasswordlink",{
+    email,
+  })
+  return result.data
+}
+
+export const resetPasswordApi= async({
+  id,
+  password,
+  token,
+})=>{
+  const result= await axiosInstance.post(`/api/resetPassword/:${id}/:${token}`,{
+    password
+  })
+  return result.data
+}
+
+export const getResetPasswordApi= async({
+  id,token
+})=>{
+  const result= await axiosInstance.get(`/api/resetPassword/:${id}/:${token}`);
+  return result.data
+}
+
 export const postUser = async ({
   name,
   address,

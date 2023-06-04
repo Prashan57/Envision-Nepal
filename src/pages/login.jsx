@@ -127,11 +127,11 @@ const Login = (props) => {
               <label htmlFor="remember" className="text-xs text-gray-500">
                 Remember for 30 days
               </label>
-              <a href="#" className="ml-auto text-sm text-blue-500">
+              <Link to ="/forgotPassword"  className="ml-auto text-sm text-blue-500">
                 Forgot password?
-              </a>
+              </Link>
             </motion.div>
-            <div className="mt-5 mb-4">
+            <div className="mt-14 mb-4">
               <motion.div variants={item}>
                 <button className="w-full bg-gray-800 text-white hover:text-gray-800 hover:bg-secondary py-2 mb-4 rounded">
                   Login
