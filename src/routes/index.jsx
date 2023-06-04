@@ -33,7 +33,7 @@ export const routes = [
   },
   {
     path: "/dashboard",
-    element: <AdminPage />,
+    element: <AdminHome />,
     name: "Dashboard",
   },
   {

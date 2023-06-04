@@ -16,14 +16,14 @@ const AdminPage = ({ children }) => {
   return (
     <div style={mainView}>
       <div style={sideBar}>
-        <Link to="/admin/home">
+        <Link to="/">
           <b
             style={{
-              fontSize: "40px",
+              fontSize: "30px",
               fontWeight: "inherit",
             }}
           >
-            Envision Nepal
+            ↤ Envision Nepal
           </b>
         </Link>
         <br />

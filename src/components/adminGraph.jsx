@@ -106,7 +106,7 @@ const AdminGraph = () => {
                 cx={200}
                 cy={200}
                 outerRadius={80}
-                fill="black"
+                fill="#1f2937"
                 label
               />
 
@@ -137,7 +137,7 @@ const AdminGraph = () => {
               <CartesianGrid strokeDasharray="3 3" />
               <Bar
                 dataKey="activity"
-                fill="black"
+                fill="#1f2937"
                 background={{ fill: "#eee" }}
               />
             </BarChart>
@@ -162,7 +162,7 @@ const AdminGraph = () => {
               <Line
                 type="monotone"
                 dataKey="pv"
-                stroke="black"
+                stroke="#1f2937"
                 activeDot={{ r: 8 }}
               />
               <Line type="monotone" dataKey="uv" stroke="gray" />

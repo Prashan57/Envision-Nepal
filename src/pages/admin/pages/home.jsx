@@ -7,6 +7,7 @@ import { useUserBid } from "../../../hooks/useUserBid";
 import "../../../styles/homeCard.css";
 import "../../../styles/homeListCard.css";
 import AdminGraph from "../../../components/adminGraph";
+import { color } from "../../../constants/color";
 const AdminHome = () => {
   const { users } = useUsers();
   const { post } = useAdmin();
@@ -33,8 +34,16 @@ const AdminHome = () => {
         <div class="card">
           Bids Done : <b>{doneLength}</b>
         </div>
-        <div class="card" style={{ backgroundColor: "black", color: "white" }}>
-          <b>Administrator</b>
+        <div
+          class="card"
+          style={{
+            borderRadius: "8px",
+            backgroundColor: color.primaryColor,
+            color: "white",
+          }}
+        >
+          <i class="fa-duotone fa-user-tie-hair"></i>
+          <b> 🕵 Administrator</b>
         </div>
       </div>
       <div>

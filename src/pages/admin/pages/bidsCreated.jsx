@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AdminPage from "..";
 import { useNavigate } from "react-router-dom";
 import { useAdmin } from "../../../hooks/useAdminBid";
+import { color } from "../../../constants/color";
 
 const BidsCreated = () => {
   const navigate = useNavigate();
@@ -47,11 +48,11 @@ const BidsCreated = () => {
           <div>
             <button
               style={{
-                border: "1px solid black",
                 padding: "15px",
-                margin: "10px",
-                backgroundColor: "black",
-                color: "white",
+                margin: "10px 35px 0 0",
+                fontWeight: "bold",
+                backgroundColor: color.primaryColor,
+                color: color.textColor,
                 borderRadius: "10px",
               }}
             >
@@ -59,6 +60,8 @@ const BidsCreated = () => {
             </button>
           </div>
         </div>
+        <hr />
+        <br />
         <form onSubmit={handleSubmit}>
           <div style={{ margin: "10px" }}>
             <p style={{ fontSize: "25px", fontWeight: "bold", margin: "10px" }}>
@@ -137,12 +140,11 @@ const BidsCreated = () => {
           <button
             type="submit"
             style={{
-              border: "1px solid black",
               padding: "15px",
               margin: "10px",
-              backgroundColor: "black",
-              color: "white",
-              fontWeight: "inherit",
+              backgroundColor: color.primaryColor,
+              color: color.textColor,
+              fontWeight: "bold",
               fontSize: "20px",
               fontFamily: "unset",
               borderRadius: "10px",

@@ -1,3 +1,5 @@
+import { color } from "../constants/color";
+
 export const mainView = {
   // width: "100%",
   position: "relative",
@@ -7,13 +9,13 @@ export const mainView = {
 
 export const sideBar = {
   // width: "20%",
-  backgroundColor: "black",
+  backgroundColor: color.primaryColor,
 
   flex: 0.2,
   // position: "fixed",
   height: "100vh",
   color: "white",
-  fontSize: "25px",
+  fontSize: "20px",
   paddingTop: "10px",
   paddingLeft: "30px",
 };
