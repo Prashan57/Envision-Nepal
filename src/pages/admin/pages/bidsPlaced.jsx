@@ -6,21 +6,16 @@ const BidsPlaced = () => {
   const { done } = useUserBid();
   return (
     <AdminPage>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          margin: "50px",
-        }}
-      >
+      <div className="flex flex-col m-12">
         <div
-          style={{
-            textAlign: "center",
-            fontSize: "30px",
-            fontFamily: "inherit",
-            fontWeight: "bold",
-            marginBottom: "40px",
-          }}
+        className="text-center text-xl font-inherit font-bold mb-11 "
+          // style={{
+          //   textAlign: "center",
+          //   fontSize: "30px",
+          //   fontFamily: "inherit",
+          //   fontWeight: "bold",
+          //   marginBottom: "40px",
+          // }}
         >
           User Bid List
         </div>

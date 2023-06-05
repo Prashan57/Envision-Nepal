@@ -26,12 +26,12 @@ const AdminPage = ({ children }) => {
             ↤ Envision Nepal
           </b>
         </Link>
-        <br />
-        <br /> <Link to="/admin/home"> Home</Link>
-        <br /> <Link to="/admin/usersList"> Users</Link>
-        <br /> <Link to="/admin/training">Training</Link>
-        <br /> <Link to="/admin/bidsCreated">Post Training </Link>
-        <br /> <Link to="/admin/bidsPlaced">Bids Placed</Link>
+        <br />  
+        <br />   <Link to="/admin/home" className="hover:text-secondary"> Home</Link>
+        <br />   <Link to="/admin/usersList" className="hover:text-secondary"> Users</Link>
+        <br />   <Link to="/admin/training"className="hover:text-secondary">Training</Link>
+        <br />   <Link to="/admin/bidsCreated"className="hover:text-secondary">Post Training </Link>
+        <br />   <Link to="/admin/bidsPlaced"className="hover:text-secondary">Bids Placed</Link>
       </div>
       <div style={content}>{children}</div>
     </div>
