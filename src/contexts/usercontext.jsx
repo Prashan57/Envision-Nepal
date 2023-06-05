@@ -112,9 +112,9 @@ export const UserProvider= ({children})=>{
         }
     }
 
-    const onResetPassword= async({password})=>{
+    const onResetPassword= async({id,password,token})=>{
         try{
-            const response= await resetPasswordApi({password})
+            const response= await resetPasswordApi({id,password,token})
             return response
         }
         catch(e){

@@ -26,7 +26,7 @@ export const resetPasswordApi= async({
   password,
   token,
 })=>{
-  const result= await axiosInstance.post(`/api/resetPassword/:${id}/:${token}`,{
+  const result= await axiosInstance.post(`/api/resetPassword/${id}/${token}`,{
     password
   })
   return result.data
@@ -35,7 +35,7 @@ export const resetPasswordApi= async({
 export const getResetPasswordApi= async({
   id,token
 })=>{
-  const result= await axiosInstance.get(`/api/resetPassword/:${id}/:${token}`);
+  const result= await axiosInstance.get(`/api/resetPassword/${id}/${token}`);
   return result.data
 }
 

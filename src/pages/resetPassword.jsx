@@ -55,7 +55,8 @@ const ResetPassword = () => {
         const response = await onVerifyResetToken({ id, token });
 
         if (response.success) {
-          // Token is valid
+          console.log("Response Success")
+          
         } else {
           navigate('/404');
         }

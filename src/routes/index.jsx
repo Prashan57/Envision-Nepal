@@ -30,10 +30,6 @@ export const routes = [
     name: "SignUp",
   },
   {
-    path: "/404",
-    element: <Error404 />,
-  },
-  {
     path:"/bid",
     element:<Bid/>
   },
@@ -48,5 +44,9 @@ export const routes = [
   {
     path:"/resetPassword/:id/:token",
     element:<ResetPassword/>
-  }
+  },
+  {
+    path: "/404",
+    element: <Error404 />,
+  },
 ];

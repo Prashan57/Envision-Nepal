@@ -148,7 +148,7 @@ const Login = (props) => {
         </motion.div>
       </div>
       <div className="w-3/5 bg-white flex justify-center ">
-        <img src="../../public/Login.jpg" alt="Background" className="h-full w-20/21 object-cover"  />
+        <img src="/Login.jpg" alt="Background" className="h-full w-20/21 object-cover"  />
       </div>
     </motion.div>
   );
