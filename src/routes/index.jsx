@@ -42,7 +42,7 @@ export const routes = [
     element:<ForgotPassword/>
   },
   {
-    path:"/resetPassword/:id/:token",
+    path:"/resetPassword/:id",
     element:<ResetPassword/>
   },
   {

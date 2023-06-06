@@ -26,8 +26,12 @@ export const resetPasswordApi= async({
   password,
   token,
 })=>{
-  const result= await axiosInstance.post(`/api/resetPassword/${id}/${token}`,{
+  const result= await axiosInstance.post(`/api/resetPassword/${id}`,{
     password
+  }, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
   })
   return result.data
 }
@@ -35,7 +39,11 @@ export const resetPasswordApi= async({
 export const getResetPasswordApi= async({
   id,token
 })=>{
-  const result= await axiosInstance.get(`/api/resetPassword/${id}/${token}`);
+  const result= await axiosInstance.get(`/api/resetPassword/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
   return result.data
 }
 

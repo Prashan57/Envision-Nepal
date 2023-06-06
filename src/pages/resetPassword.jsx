@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useUserContext } from '../contexts/usercontext';
 import Info from '../components/info';
@@ -9,7 +9,9 @@ const initialData = {
 };
 
 const ResetPassword = () => {
+
   const { id, token } = useParams();
+  const [searchParams]=useSearchParams();
   const { onResetPassword , onVerifyResetToken} = useUserContext();
   const navigate = useNavigate();
   const [submitData, setSubmitData] = useState(initialData);
@@ -20,7 +22,7 @@ const ResetPassword = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await onResetPassword({ id, token, password: submitData.password });
+    const response = await onResetPassword({ id, token: searchParams.get("token"), password: submitData.password });
 
     if (response.error) {
       setError({
@@ -52,11 +54,10 @@ const ResetPassword = () => {
   useEffect(() => {
     const verifyResetToken = async () => {
       try {
-        const response = await onVerifyResetToken({ id, token });
+        const response = await onVerifyResetToken({ id, token:searchParams.get("token") });
 
         if (response.success) {
           console.log("Response Success")
-          
         } else {
           navigate('/404');
         }
@@ -65,9 +66,11 @@ const ResetPassword = () => {
         navigate('/404');
       }
     };
-
-    verifyResetToken();
-  }, [id, token, navigate, onVerifyResetToken]);
+    if(searchParams.get("token")){
+      verifyResetToken();
+    }
+      
+  }, [id, searchParams, navigate, onVerifyResetToken]);
 
   return (
     <motion.div
