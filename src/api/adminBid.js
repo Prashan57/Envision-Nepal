@@ -17,7 +17,7 @@ export const getBid = async () => {
   return result.data;
 };
 
-export const getBidByID = async ({ _id }) => {
+export const getBidByID = async (_id) => {
   const result = await axiosInstance.get(`/api/admin/getRegisteredBid/${_id}`);
   return result.data;
 };

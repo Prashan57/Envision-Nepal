@@ -1,9 +1,13 @@
 import React from "react";
 import AdminPage from "..";
 import { useUsers } from "../../../hooks/useUser";
+import { color } from "../../../constants/color";
+import { useNavigate } from "react-router-dom";
 
 const UsersList = () => {
+  const navigate = useNavigate();
   const { users } = useUsers();
+
   return (
     <AdminPage>
       <div
@@ -32,6 +36,7 @@ const UsersList = () => {
               <div
                 class="cardList"
                 style={{ width: "100%", alignSelf: "center", margin: "20px" }}
+                key={user._id}
               >
                 <div>
                   Username : <b>{user.name}</b>
@@ -40,6 +45,21 @@ const UsersList = () => {
                 </div>
                 <div>
                   PAN : <b> {user.pan}</b>
+                  <br />
+                  <button
+                    style={{
+                      fontSize: "12px",
+                      padding: "15px",
+                      margin: "10px 35px 0 0",
+                      fontWeight: "inherit",
+                      backgroundColor: color.primaryColor,
+                      color: color.textColor,
+                      borderRadius: "10px",
+                    }}
+                    onClick={() => navigate(`/admin/userDetail/${user._id}`)}
+                  >
+                    View Details
+                  </button>
                 </div>
               </div>
             );

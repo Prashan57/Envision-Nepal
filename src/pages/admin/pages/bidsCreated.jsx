@@ -26,7 +26,7 @@ const BidsCreated = () => {
         data
       );
       console.log(data);
-      navigate("/");
+      navigate("/admin/training");
     } catch (e) {
       console.log("Error pushing data Admin Post", e);
     }
@@ -55,6 +55,7 @@ const BidsCreated = () => {
                 color: color.textColor,
                 borderRadius: "10px",
               }}
+              onClick={() => navigate("/admin/training")}
             >
               Bids Created
             </button>

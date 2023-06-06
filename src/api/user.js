@@ -28,6 +28,7 @@ export const getUsers = async () => {
 
 export const getUserDetail = async ({ _id }) => {
   const result = await axiosInstance.get(`/api/registeredUsers/${_id}`);
+  console.log(result.data);
   return result.data;
 };
 

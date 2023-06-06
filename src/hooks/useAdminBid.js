@@ -35,11 +35,12 @@ export const useAdmin = () => {
     setLoading(false);
   };
 
-  const useGetAdminPostByID = async ({ _id }) => {
+  const useGetAdminPostByID = async (_id) => {
     setLoading(true);
-    const res = await getBidByID({ _id });
+    const res = await getBidByID(_id);
     setPost(res);
     setLoading(false);
+    return res;
   };
   //U
   const useEditAdminPost = async ({
@@ -55,9 +56,9 @@ export const useAdmin = () => {
   };
 
   //D
-  const useDeleteAdminPost = async ({ _id }) => {
+  const useDeleteAdminPost = async (id) => {
     setLoading(true);
-    await deleteBid({ _id });
+    await deleteBid({ _id: id });
     setPost((prevUsers) => prevUsers.filter((user) => user._id !== _id));
     setLoading(false);
   };

@@ -41,11 +41,12 @@ export const useUsers = () => {
     setLoading(false);
   };
 
-  const useGetUserByID = async ({ _id }) => {
+  const useGetUserByID = async (id) => {
     setLoading(true);
-    const res = await getUserDetail({ _id });
+    const res = await getUserDetail({ _id: id });
     setUsers(res);
     setLoading(false);
+    return res;
   };
   //U
   const useEditUser = async ({
@@ -71,9 +72,9 @@ export const useUsers = () => {
   };
 
   //D
-  const useDeleteUser = async ({ _id }) => {
+  const useDeleteUser = async (id) => {
     setLoading(true);
-    await deleteUser({ _id });
+    await deleteUser({ _id: id });
     setUsers((prevUsers) => prevUsers.filter((user) => user._id !== _id));
     setLoading(false);
   };

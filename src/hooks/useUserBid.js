@@ -20,9 +20,9 @@ export const useUserBid = () => {
   }, []);
 
   //C
-  const useUserBidPost = async ({}) => {
+  const useUserBidPost = async ({ title, bidAmount, email }) => {
     setLoading(true);
-    await postBid({});
+    await postBid({ _id, title, bidAmount, email });
     setLoading(false);
   };
 
@@ -32,23 +32,25 @@ export const useUserBid = () => {
     const res = await getBid();
     setDone(res);
     setLoading(false);
+    return res;
   };
 
-  const useGetUserPostByID = async ({ _id }) => {
+  const useGetUserPostByID = async (id) => {
     setLoading(true);
-    const res = await getBidByID({ _id });
+    const res = await getBidByID({ _id: id });
     setDone(res);
     setLoading(false);
+    return res;
   };
   //U
-  const useEditUserBidPost = async ({}) => {
+  const useEditUserBidPost = async (id) => {
     setLoading(true);
-    await updateBid({});
+    await updateBid({ _id: id });
     setLoading(false);
   };
 
   //D
-  const useDeleteUserBidPost = async ({ _id }) => {
+  const useDeleteUserBidPost = async (_id) => {
     setLoading(true);
     await deleteBid({ _id });
     setDone((prevUsers) => prevUsers.filter((user) => user._id !== _id));
