@@ -25,7 +25,7 @@ const BidsPlaced = () => {
             marginBottom: "40px",
           }}
         >
-          User Bid List
+          User's Bid List
         </div>
 
         <hr />

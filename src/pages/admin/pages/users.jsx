@@ -26,7 +26,7 @@ const UsersList = () => {
             marginBottom: "40px",
           }}
         >
-          Training List
+          User's List
         </div>
 
         <hr />
