@@ -3,4 +3,5 @@ export const color = {
   secondaryColor: "teal",
   textColor: "white",
   //   textColor: "#4fb4ea",
+  //  approvalColor: "",
 };
