@@ -1,6 +1,52 @@
 import axiosInstance from "./axiosInstance";
 
 //C
+export const loginUserApi= async({
+  email,
+  password
+})=>{
+  const result= await axiosInstance.post("/api/loginUser",{
+    email,
+    password
+  })
+  return result.data
+}
+
+export const passwordLinkApi= async({
+  email,
+})=>{
+  const result= await axiosInstance.post("/api/sendpasswordlink",{
+    email,
+  })
+  return result.data
+}
+
+export const resetPasswordApi= async({
+  id,
+  password,
+  token,
+})=>{
+  const result= await axiosInstance.post(`/api/resetPassword/${id}`,{
+    password
+  }, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  })
+  return result.data
+}
+
+export const getResetPasswordApi= async({
+  id,token
+})=>{
+  const result= await axiosInstance.get(`/api/resetPassword/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+  return result.data
+}
+
 export const postUser = async ({
   name,
   address,
