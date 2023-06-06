@@ -2,7 +2,6 @@ import { color } from "../constants/color";
 
 export const mainView = {
   // width: "100%",
-  position: "relative",
   display: "flex",
   flexDirection: "row",
 };

@@ -1,6 +1,5 @@
 import Index from "../pages";
 import Error404 from "../pages/Error404";
-<<<<<<< HEAD
 import BidsCreated from "../pages/admin/pages/bidsCreated";
 import BidsPlaced from "../pages/admin/pages/bidsPlaced";
 import AdminHome from "../pages/admin/pages/home";
@@ -9,11 +8,9 @@ import UsersList from "../pages/admin/pages/users";
 import AdminBidPostsView from "../pages/admin/pages/views/bidsView";
 import UserBidsView from "../pages/admin/pages/views/userBidsView";
 import UsersView from "../pages/admin/pages/views/usersView";
-=======
 import AdminPage from "../pages/admin";
 import Bid from "../pages/bid";
 import ForgotPassword from "../pages/forgotpassword";
->>>>>>> sonik
 import Login from "../pages/login";
 import ResetPassword from "../pages/resetPassword";
 import SignUp from "../pages/signup";
@@ -41,26 +38,25 @@ export const routes = [
     name: "SignUp",
   },
   {
-<<<<<<< HEAD
     path: "/dashboard",
     element: <AdminHome />,
     name: "Dashboard",
-=======
-    path:"/bid",
-    element:<Bid/>
   },
   {
-    path:"/admin",
-    element:<AdminPage/>,
+    path: "/bid",
+    element: <Bid />,
   },
   {
-    path:"/forgotPassword",
-    element:<ForgotPassword/>
+    path: "/admin",
+    element: <AdminPage />,
   },
   {
-    path:"/resetPassword/:id",
-    element:<ResetPassword/>
->>>>>>> sonik
+    path: "/forgotPassword",
+    element: <ForgotPassword />,
+  },
+  {
+    path: "/resetPassword/:id",
+    element: <ResetPassword />,
   },
   {
     path: "/404",

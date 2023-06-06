@@ -25,7 +25,7 @@ const AdminPage = ({ children }) => {
               color: color.textColor,
             }}
           >
-            ⤆Envision Nepal
+            Envision Nepal
           </b>
         </Link>
         <br />
