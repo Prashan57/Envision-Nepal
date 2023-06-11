@@ -34,7 +34,7 @@ const BidsPlaced = () => {
             return (
               <div
                 class="cardList"
-                style={{ width: "100%", alignSelf: "center", margin: "20px" }}
+                style={{ width: "" }}
                 key={d._id}
               >
                 <div>

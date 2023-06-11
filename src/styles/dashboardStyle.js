@@ -1,27 +1,33 @@
 import { color } from "../constants/color";
 
 export const mainView = {
-  // width: "100%",
+  width: "100vw",
+  // position: "relative",
   display: "flex",
-  flexDirection: "row",
+  
+  height:"100vh",
 };
 
 export const sideBar = {
-  // width: "20%",
+  paddingLeft:"20px",
+  width: "19%",
   backgroundColor: color.primaryColor,
-
-  flex: 0.2,
-  // position: "fixed",
+  display:"flex",
+  flexDirection:"column",
+  position: "fixed",
   height: "100vh",
   color: "white",
   fontSize: "20px",
-  paddingTop: "10px",
-  paddingLeft: "30px",
+  overflow: "auto",
+  alignItems:"start"
 };
 
 export const content = {
-  flex: 0.8,
+  flex: 1,
+  marginLeft:"17%",
+  padding:"20px",
   overflowY: "scroll",
+
   // width: "80%",
   // position: "relative",
 };

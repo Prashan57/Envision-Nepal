@@ -27,12 +27,13 @@ const TrainingList = () => {
           Training List
         </div>
         <hr />
-        <div>
+        <div
+          style={{width:"100%",height:"100%",marginBottom:"5px"}}>
           {post.map((post) => {
             return (
               <div
                 class="cardList"
-                style={{ width: "100%", alignSelf: "center", margin: "20px" }}
+                style={{ width: "100%" , }}
                 key={post._id}
               >
                 <div>
