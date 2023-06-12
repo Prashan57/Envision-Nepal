@@ -40,7 +40,6 @@ export const routes = [
   {
     path: "/dashboard",
     element: <AdminHome />,
-    name: "Dashboard",
   },
   {
     path: "/bid",

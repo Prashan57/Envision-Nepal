@@ -12,7 +12,7 @@ const initialLoginData = {
 
 const Login = (props) => {
   const navigate = useNavigate();
-  const { loginUser } = useUserContext();
+  const { loginUser, adminUser } = useUserContext();
 
   const [error, setError] = useState({
     errorText: "",
@@ -36,6 +36,12 @@ const Login = (props) => {
 
   const onLogin = async (e) => {
     e.preventDefault();
+    if (
+      loginData.email === adminUser.email &&
+      loginData.password === adminUser.password
+    ) {
+      return navigate("/admin/home");
+    }
     const response = await loginUser(loginData);
     console.log("Login response", response);
     if (response.error) {
@@ -91,11 +97,11 @@ const Login = (props) => {
 
           <div className="overflow-hidden text-sm text-gray-500 mt-3 mb-5 ">
             <motion.p variants={item}>
-              Welcome  Please enter your details
+              Welcome Please enter your details
             </motion.p>
           </div>
           <form onSubmit={onLogin} className="overflow-hidden">
-            <div  className="mb-5 ">
+            <div className="mb-5 ">
               <input
                 type="email"
                 id="email"
@@ -127,7 +133,10 @@ const Login = (props) => {
               <label htmlFor="remember" className="text-xs text-gray-500">
                 Remember for 30 days
               </label>
-              <Link to ="/forgotPassword"  className="ml-auto text-sm text-blue-500">
+              <Link
+                to="/forgotPassword"
+                className="ml-auto text-sm text-blue-500"
+              >
                 Forgot password?
               </Link>
             </motion.div>
@@ -148,7 +157,11 @@ const Login = (props) => {
         </motion.div>
       </div>
       <div className="w-3/5 bg-white flex justify-center ">
-        <img src="/Login.jpg" alt="Background" className="h-full w-20/21 object-cover"  />
+        <img
+          src="/Login.jpg"
+          alt="Background"
+          className="h-full w-20/21 object-cover"
+        />
       </div>
     </motion.div>
   );
