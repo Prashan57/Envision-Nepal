@@ -49,7 +49,7 @@ const AdminTraining = () => {
                   }}
                 >
                   <div>
-                    Bid Amount : <b>$ {post.bidAmount}</b>
+                    Bid Amount : <b>Rs. {post.bidAmount}</b>
                   </div>
                   <div
                     style={{

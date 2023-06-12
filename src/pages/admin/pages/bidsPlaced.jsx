@@ -44,7 +44,7 @@ const BidsPlaced = () => {
                   }}
                 >
                   <div>
-                    Bid Amount : <b>$ {d.bidAmount}</b>
+                    Bid Amount : <b>Rs. {d.bidAmount}</b>
                   </div>
                   <div
                     style={{

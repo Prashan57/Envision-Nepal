@@ -27,15 +27,10 @@ const TrainingList = () => {
           Training List
         </div>
         <hr />
-        <div
-          style={{width:"100%",height:"100%",marginBottom:"5px"}}>
+        <div style={{ width: "100%", height: "100%", marginBottom: "5px" }}>
           {post.map((post) => {
             return (
-              <div
-                class="cardList"
-                style={{ width: "100%" , }}
-                key={post._id}
-              >
+              <div class="cardList" style={{ width: "100%" }} key={post._id}>
                 <div>
                   Post Title <br />
                   <b>{post.title}</b>
@@ -48,7 +43,7 @@ const TrainingList = () => {
                   }}
                 >
                   <div>
-                    Bid Amount : <b>$ {post.bidAmount}</b>
+                    Bid Amount : <b>Rs. {post.bidAmount}</b>
                   </div>
                   <div
                     style={{
@@ -70,7 +65,7 @@ const TrainingList = () => {
                         navigate(`/admin/postDetail/${post._id}`);
                       }}
                     >
-                      View Details
+                      Place a bid
                     </button>
                   </div>
                 </div>

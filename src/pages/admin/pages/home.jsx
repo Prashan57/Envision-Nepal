@@ -115,7 +115,7 @@ const AdminHome = () => {
                   Post Title : <b>{post.title}</b>
                 </div>
                 <div>
-                  Bid Amount : <b>$ {post.bidAmount}</b>
+                  Bid Amount : <b>Rs. {post.bidAmount}</b>
                 </div>
               </div>
             );
@@ -156,7 +156,7 @@ const AdminHome = () => {
                 <b>Bid title : </b> {d.title}
               </div>
               <div>
-                <b>Bid Amount : </b>$ {d.bidAmount}
+                <b>Bid Amount : </b>Rs. {d.bidAmount}
               </div>
             </div>
           );
