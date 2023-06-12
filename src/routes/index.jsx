@@ -25,7 +25,7 @@ export const routes = [
   {
     path: "/trainingList",
     element: <TrainingList />,
-    name: "trainingList",
+    name: "Trainings",
   },
   {
     path: "/login",
