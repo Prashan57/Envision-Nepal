@@ -17,17 +17,20 @@ const AdminPage = ({ children }) => {
   return (
     <div style={mainView}>
       <div style={sideBar}>
-        <Link to="/">
-          <b
-            style={{
-              fontSize: "30px",
-              fontWeight: "inherit",
-              color: color.textColor,
-            }}
-          >
-            Envision Nepal
-          </b>
-        </Link>
+        <div style={{ marginTop: "25px" }}>
+          <Link to="/">
+            <b
+              style={{
+                fontSize: "30px",
+                fontWeight: "inherit",
+                color: color.textColor,
+              }}
+            >
+              Envision Nepal
+            </b>
+          </Link>
+          <hr />
+        </div>
         <br />
         <br /> <Link to="/admin/home">Home</Link>
         <br /> <Link to="/admin/usersList">Users</Link>

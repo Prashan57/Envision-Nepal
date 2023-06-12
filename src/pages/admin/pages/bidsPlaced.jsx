@@ -32,11 +32,7 @@ const BidsPlaced = () => {
         <div>
           {done.map((d) => {
             return (
-              <div
-                class="cardList"
-                style={{ width: "" }}
-                key={d._id}
-              >
+              <div class="cardList" style={{ width: "100%" }} key={d._id}>
                 <div>
                   Bid Title : <br />
                   <b>{d.title}</b>
