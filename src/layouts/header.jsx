@@ -7,18 +7,13 @@ import { useUserContext } from "../contexts/usercontext";
 const Header = () => {
   const {isLoggedIn,onLogOut}= useUserContext();
   return (
-    <motion.div
-      className="bg-gray-800"
-      initial={{ y: "-100%" }}
-      animate={{ y: "0%" }}
-      transition={{ duration: 0.5, delay:0.25, ease: "easeOut" }}
-      exit={{ opacity: 1 }}
-    >
+    <div
+      className="bg-gray-800">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="text-secondary font-bold text-lg flex justify-between">
-            <div><img src="../../public/Logo.png" alt="" className="w-7 mr-5" /></div>
+            <div><img src="../../public/logo.jpg" alt="" className="w-7 mr-5" /></div>
             <Link to="/">Envision Nepal</Link>
           </div>
 
@@ -53,7 +48,7 @@ const Header = () => {
         </div>
       </div>
     
-    </motion.div>
+    </div>
   );
 };
 
