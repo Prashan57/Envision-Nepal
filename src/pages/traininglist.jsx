@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import Layout from "../layouts";
 import { useAdmin } from "../hooks/useAdminBid";
 import { color } from "../constants/color";
 import "../styles/homeListCard.css";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../contexts/usercontext";
 
 const TrainingList = () => {
   const { post } = useAdmin();
+  const navigate = useNavigate();
+  const { isLoggedIn } = useContext(UserContext);
   return (
     <Layout>
       <div
@@ -21,12 +25,15 @@ const TrainingList = () => {
             fontSize: "30px",
             fontFamily: "inherit",
             fontWeight: "bold",
-            marginBottom: "40px",
+            marginBottom: "20px",
           }}
         >
           Training List
         </div>
         <hr />
+        {!isLoggedIn && (
+          <div style={{ color: "gray" }}>Please Login For placing a bid</div>
+        )}
         <div style={{ width: "100%", height: "100%", marginBottom: "5px" }}>
           {post.map((post) => {
             return (
@@ -43,7 +50,7 @@ const TrainingList = () => {
                   }}
                 >
                   <div>
-                    Bid Amount : <b>Rs. {post.bidAmount}</b>
+                    Bid Security : <b>Rs. {post.bidAmount}</b>
                   </div>
                   <div
                     style={{
@@ -51,21 +58,39 @@ const TrainingList = () => {
                       justifyContent: "flex-end",
                     }}
                   >
+                    {isLoggedIn && (
+                      <button
+                        style={{
+                          fontSize: "12px",
+                          margin: "7px",
+                          padding: "15px",
+                          fontWeight: "inherit",
+                          backgroundColor: color.primaryColor,
+                          color: color.textColor,
+                          borderRadius: "10px",
+                        }}
+                        onClick={() => {
+                          navigate(`/bidPlacement/${post._id}`);
+                        }}
+                      >
+                        Place a bid
+                      </button>
+                    )}
                     <button
                       style={{
                         fontSize: "12px",
                         padding: "15px",
-                        margin: "10px 35px 0 0",
+                        margin: "7px",
                         fontWeight: "inherit",
                         backgroundColor: color.primaryColor,
                         color: color.textColor,
                         borderRadius: "10px",
                       }}
                       onClick={() => {
-                        navigate(`/admin/postDetail/${post._id}`);
+                        navigate(`/bidDetails/${post._id}`);
                       }}
                     >
-                      Place a bid
+                      View Details
                     </button>
                   </div>
                 </div>

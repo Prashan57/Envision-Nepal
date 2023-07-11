@@ -1,11 +1,12 @@
 import axiosInstance from "./axiosInstance";
 
 //C
-export const postBid = async ({ title, bidAmount, email }) => {
+export const postBid = async ({ title, bidAmount, email, PAN }) => {
   const result = await axiosInstance.post("/api/registerBid", {
     title,
     bidAmount,
     email,
+    PAN,
   });
   return result.data;
 };
@@ -22,11 +23,12 @@ export const getBidByID = async ({ _id }) => {
 };
 
 //U
-export const updateBid = async ({ _id, title, bidAmount, email }) => {
+export const updateBid = async ({ _id, title, bidAmount, email, PAN }) => {
   const result = await axiosInstance.put(`/api/registeredBid/${_id}`, {
     title,
     bidAmount,
     email,
+    PAN,
   });
   return result.data;
 };

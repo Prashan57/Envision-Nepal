@@ -15,6 +15,9 @@ import Login from "../pages/login";
 import ResetPassword from "../pages/resetPassword";
 import SignUp from "../pages/signup";
 import TrainingList from "../pages/traininglist";
+import BidDetails from "../pages/bidDetails";
+import BidPlacement from "../pages/placeBid";
+import UserBidPayment from "../pages/userBidPayment";
 
 export const routes = [
   {
@@ -98,5 +101,17 @@ export const routes = [
   {
     path: "/admin/userBidPosts/:id",
     element: <UserBidsView />,
+  },
+  {
+    path: "/bidDetails/:id",
+    element: <BidDetails />,
+  },
+  {
+    path: "/bidPlacement/:id",
+    element: <BidPlacement />,
+  },
+  {
+    path: "/bidPayment",
+    element: <UserBidPayment />,
   },
 ];

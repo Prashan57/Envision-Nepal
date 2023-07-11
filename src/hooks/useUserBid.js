@@ -20,9 +20,9 @@ export const useUserBid = () => {
   }, []);
 
   //C
-  const useUserBidPost = async ({ title, bidAmount, email }) => {
+  const useUserBidPost = async ({ title, bidAmount, email, PAN }) => {
     setLoading(true);
-    await postBid({ _id, title, bidAmount, email });
+    await postBid({ title, bidAmount, email, PAN });
     setLoading(false);
   };
 

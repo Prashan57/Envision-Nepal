@@ -9,7 +9,12 @@ const UserBidsView = () => {
   const navigate = useNavigate();
   const { useGetUserPostByID, useDeleteUserBidPost } = useUserBid();
 
-  const [data, setData] = useState({ title: "", bidAmount: "", email: "" });
+  const [data, setData] = useState({
+    title: "",
+    bidAmount: "",
+    email: "",
+    PAN: "",
+  });
 
   useEffect(() => {
     if (params.id) {
@@ -49,7 +54,7 @@ const UserBidsView = () => {
             margin: "15px",
           }}
         >
-          User Detail of {data.title}
+          Bidder's Name : {data.title}
         </div>
 
         <hr />
@@ -88,6 +93,12 @@ const UserBidsView = () => {
                 <td>Bid Amount</td>
                 <td>
                   <b>{data.bidAmount}</b>
+                </td>
+              </tr>
+              <tr>
+                <td>PAN Number</td>
+                <td>
+                  <b>{data.PAN}</b>
                 </td>
               </tr>
             </table>
