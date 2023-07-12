@@ -20,7 +20,7 @@ const UserBidPayment = () => {
     try {
       await useUserBidPost(data);
       console.log(data);
-      navigate("/");
+      window.location.href = "https://forms.gle/28pUojwLx7FmHc8p8";
     } catch (e) {
       console.log("Error pushing bid Data from user", e);
     }
@@ -105,7 +105,7 @@ const UserBidPayment = () => {
             </p>{" "}
             <input
               type="number"
-              placeholder="XXXX-XXXX-XXXX"
+              placeholder="XXXXXXXXXXXX"
               required
               value={data.PAN}
               onChange={(e) => setData({ ...data, PAN: e.target.value })}
