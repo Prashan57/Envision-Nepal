@@ -84,7 +84,7 @@ const BidsCreated = () => {
           </div>
           <div style={{ margin: "10px" }}>
             <p style={{ fontSize: "25px", fontWeight: "bold", margin: "10px" }}>
-              Training amount / Bid amount :
+              Training / Bid Security Amount :
             </p>{" "}
             <input
               type="Number"
