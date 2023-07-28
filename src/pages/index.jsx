@@ -70,7 +70,7 @@ const Index = () => {
           {/* Additional content goes here */}
         </main>
 
-        <footer className="bg-gray-200 py-4 ">
+        <footer className="bg-gray-200 py-7 ">
           <div className="container mx-auto px-4">
             <p className="text-center text-gray-600">
               &copy; {new Date().getFullYear()} Envision Nepal. All rights

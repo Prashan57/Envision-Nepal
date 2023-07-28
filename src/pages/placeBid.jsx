@@ -3,6 +3,7 @@ import Layout from "../layouts";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAdmin } from "../hooks/useAdminBid";
 import { color } from "../constants/color";
+import Khalti from "../components/khalti/khalti";
 
 const BidPlacement = () => {
   const params = useParams();
@@ -44,7 +45,8 @@ const BidPlacement = () => {
             ←
           </button>
           <b>{data.title}</b>
-          <div></div>
+          <Khalti />
+
         </div>
         <hr />
         <div

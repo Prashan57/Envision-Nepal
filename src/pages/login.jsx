@@ -91,13 +91,13 @@ const Login = (props) => {
         >
           <div className="mb-5 overflow-hidden">
             <motion.h2 variants={item} className="text-3xl font-semibold">
-              Welcome, Buddy
+              Welcome Back
             </motion.h2>
           </div>
 
           <div className="overflow-hidden text-sm text-gray-500 mt-3 mb-5 ">
             <motion.p variants={item}>
-              Welcome Please enter your details
+               Please enter your details
             </motion.p>
           </div>
           <form onSubmit={onLogin} className="overflow-hidden">
