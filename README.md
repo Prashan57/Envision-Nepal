@@ -8,3 +8,5 @@ A procurement web portal.
 ![signupPage](https://github.com/Prashan57/Envision-Nepal/assets/65729613/52345524-6e07-4f40-90a2-4b6fabec4b73)
 
 ![dashboard](https://github.com/Prashan57/Envision-Nepal/assets/65729613/e32917ab-5df2-46a6-bdcc-9e37b2049e53)
+
+![TrainingList](https://github.com/Prashan57/Envision-Nepal/assets/65729613/99489a7d-4a61-4fed-8094-cd5e172366a4)
